@@ -1,2 +1,2 @@
-nome = input('Digite seu nome: ')
-print(f'Olá {nome}, vejo que está quase conseguindo colocar esse arquivo no repositório do GitHub')
+]nome = input('Digite seu nome: ')
+print(f'Olá {nome}, agora o problema é outro, comitar na branch principal')
