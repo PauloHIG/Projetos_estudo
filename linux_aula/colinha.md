@@ -49,5 +49,5 @@ o usuario atual tem as três permissões (soma 7)
 os usuarios do grupo tem apenas as permissões de leitura e execução(soma 5)
 os demais usuarios não tem permissão nenhuma(0)
 ```bash
-chmod 750 /diretorio_ou_pasta/ 
+chmod 750 /diretorio_ou_arquivo/ 
 ```
