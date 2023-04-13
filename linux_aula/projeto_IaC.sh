@@ -10,10 +10,10 @@ sudo groupadd GRP_ADM
 sudo groupadd GRP_VEN
 sudo groupadd GRP_SEC
 
-echo "Alterando grupos dos diretorios"
-sudo chgrp GRP_ADM /home/adm
-sudo chgrp GRP_VEN /home/ven
-sudo chgrp GRP_SEC /home/sec
+echo "Alterando dono e grupo dos diretórios criados"
+sudo chown root:GRP_ADM /home/adm
+sudo chown root:GRP_VEN /home/ven
+sudo chown root:GRP_SEC /home/sec
 
 echo "Alterando permissões para os diretorios"
 sudo chmod 777 /home/publico
