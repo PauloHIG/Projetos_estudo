@@ -19,26 +19,28 @@ echo "Alterando permissões para os diretorios"
 sudo chmod 777 /home/publico
 sudo chmod 770 /home/adm
 sudo chmod 770 /home/ven
-sudo chmod 770 /home/se
+sudo chmod 770 /home/sec
 
 echo "Criando vários usuarios"
-sudo useradd -p $(openssl passwd -1 tempo) -m -s /bin/bash carlos
-sudo useradd -p $(openssl passwd -1 tempo) -m -s /bin/bash maria
-sudo useradd -p $(openssl passwd -1 tempo) -m -s /bin/bash joao
-
-sudo useradd -p $(openssl passwd -1 tempo) -m -s /bin/bash debora
-sudo useradd -p $(openssl passwd -1 tempo) -m -s /bin/bash sebastiana
-sudo useradd -p $(openssl passwd -1 tempo) -m -s /bin/bash roberto
-
-sudo useradd -p $(openssl passwd -1 tempo) -m -s /bin/bash josefina
-sudo useradd -p $(openssl passwd -1 tempo) -m -s /bin/bash amanda
-sudo useradd -p $(openssl passwd -1 tempo) -m -s /bin/bash rogerio
-
-echo "Colocado cada usuario em seu respectivo grupo"
-sudo usermod -G GRP_ADM carlos maria joao
-sudo usermod -G GRP_VEN debora sebastiana roberto
-sudo usermod -G GRP_SEC josefina amanda rogerio
+usuarios=("carlos" "maria" "joao" "debora" "sebastiana" "roberto" "josefina" "amanda" "rogerio")
+for usuario in "${usuarios[@]}";do
+	sudo useradd -p $(openssl passwd -1 tempo) -m -s /bin/bash "$usuario"
+done
 
 echo "Colocando expiração para que ele crie uma nova senha"
-#nota, não implementado para que eu pudesse fazer os testes mais rápido
-#passwd temporario -e
+for usuario in "${usuarios[@]}";do
+	sudo passwd "$usuario" -e
+done
+
+echo "Colocado cada usuario em seu respectivo grupo"
+sudo usermod -G GRP_ADM carlos
+sudo usermod -G GRP_ADM maria
+sudo usermod -G GRP_ADM joao
+
+sudo usermod -G GRP_VEN debora
+sudo usermod -G GRP_VEN sebastiana
+sudo usermod -G GRP_VEN roberto
+
+sudo usermod -G GRP_SEC josefina
+sudo usermod -G GRP_SEC amanda
+sudo usermod -G GRP_SEC rogerio
