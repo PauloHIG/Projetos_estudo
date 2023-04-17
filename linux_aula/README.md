@@ -3,3 +3,5 @@ Nesse projeto da DIO crio um script .sh para criar vários usuarios, e definir p
 o arquivo do projeto se chama [**projeto_IaC.sh**](https://github.com/PauloHIG/Projetos_estudo/blob/master/linux_aula/projeto_IaC.sh)
 
 # Infraestrutura como Código - Script de Provisionamento de um Servidor Web (Apache)
+Projeto onde atualizamos o sistema operacional do servidor e hospedamos um site do professor Denilson Bonatti
+**[IAC]** (https://github.com/PauloHIG/Projetos_estudo/blob/master/linux_aula/prov_de_servidor.sh)
