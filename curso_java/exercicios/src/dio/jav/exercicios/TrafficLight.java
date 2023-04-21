@@ -5,6 +5,8 @@ public class TrafficLight {
   
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
+    //Note que está dando erro, porque precisa de uma validação de input 
+    //para impedir que o usuario trave o programa ao inserir um valor inválido
     System.out.println("Digite um numero de 1 a 3");
     int numero = sc.nextInt();
     if(numero == 1) System.out.println("Pare! O sinal está vermelho.");
