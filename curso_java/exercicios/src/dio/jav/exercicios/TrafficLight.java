@@ -1,14 +1,14 @@
 package dio.jav.exercicios;
 
-import java.util.Scanner;
+
 public class TrafficLight {
   
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    
     //Note que está dando erro, porque precisa de uma validação de input 
     //para impedir que o usuario trave o programa ao inserir um valor inválido
-    System.out.println("Digite um numero de 1 a 3");
-    int numero = sc.nextInt();
+    
+    int numero = 1;
     if(numero == 1) System.out.println("Pare! O sinal está vermelho.");
     if(numero == 2) System.out.println("Atenção! O sinal está amarelo.");
     if(numero == 3) System.out.println("Siga em frente! O sinal está verde.");
