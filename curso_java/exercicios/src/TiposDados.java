@@ -1,4 +1,4 @@
-package dio.jav.sintaxe;
+
 
 public class TiposDados {
     public static void main(String[] args) {

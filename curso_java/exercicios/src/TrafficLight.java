@@ -1,5 +1,3 @@
-package dio.jav.exercicios;
-
 
 public class TrafficLight {
   

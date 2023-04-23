@@ -1,10 +1,9 @@
-package dio.jav.exercicios;
+
 /**
  * @author Paulo Henrique Ito
  * @since 22/04/2023
  */
 public class CalculadoraSimples {
-    //para treinar criação de métodos
     /**
      * @author Paulo H. Ito
      * @param a primeiro número

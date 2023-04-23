@@ -1,4 +1,4 @@
-package dio.jav.sintaxe;
+
 
 public class Concatenacao {
     public static void main(String[] args) {
