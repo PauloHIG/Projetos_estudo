@@ -1,3 +1,4 @@
+package dio.aulas;
 
 public class MinhaClasse {
     //por convenção, as classes são nomeadas com letra maiuscula no inicio de cada palavra

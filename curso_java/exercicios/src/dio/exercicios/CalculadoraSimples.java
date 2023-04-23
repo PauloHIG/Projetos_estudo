@@ -1,3 +1,4 @@
+package dio.exercicios;
 
 /**
  * @author Paulo Henrique Ito

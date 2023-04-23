@@ -1,3 +1,4 @@
+package dio.exercicios;
 
 public class TrafficLight {
   

@@ -1,3 +1,4 @@
+package dio.exercicios;
 
 public class MediaClassica {
     public static void main(String[] args) {
