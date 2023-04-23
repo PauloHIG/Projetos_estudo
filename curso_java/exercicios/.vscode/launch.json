@@ -1,0 +1,72 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Concatenacao",
+            "request": "launch",
+            "mainClass": "dio.aulas.Concatenacao",
+            "projectName": "exercicios_be212456"
+        },
+        {
+            "type": "java",
+            "name": "MinhaClasse",
+            "request": "launch",
+            "mainClass": "dio.aulas.MinhaClasse",
+            "projectName": "exercicios_be212456"
+        },
+        {
+            "type": "java",
+            "name": "Relacionais",
+            "request": "launch",
+            "mainClass": "dio.aulas.Relacionais",
+            "projectName": "exercicios_be212456"
+        },
+        {
+            "type": "java",
+            "name": "TiposDados",
+            "request": "launch",
+            "mainClass": "dio.aulas.TiposDados",
+            "projectName": "exercicios_be212456"
+        },
+        {
+            "type": "java",
+            "name": "CalculadoraSimples",
+            "request": "launch",
+            "mainClass": "dio.exercicios.CalculadoraSimples",
+            "projectName": "exercicios_be212456"
+        },
+        {
+            "type": "java",
+            "name": "MediaClassica",
+            "request": "launch",
+            "mainClass": "dio.exercicios.MediaClassica",
+            "projectName": "exercicios_be212456"
+        },
+        {
+            "type": "java",
+            "name": "TrafficLight",
+            "request": "launch",
+            "mainClass": "dio.exercicios.TrafficLight",
+            "projectName": "exercicios_be212456"
+        },
+        {
+            "type": "java",
+            "name": "UsandoArgs",
+            "request": "launch",
+            "mainClass": "dio.aulas.UsandoArgs",
+            "projectName": "exercicios_be212456",
+            "args": ["Paulo",24,113.35]
+        }
+    ]
+}
