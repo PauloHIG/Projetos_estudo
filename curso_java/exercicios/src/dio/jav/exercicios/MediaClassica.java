@@ -1,4 +1,4 @@
-package dio.jav.sintaxe;
+package dio.jav.exercicios;
 
 public class MediaClassica {
     public static void main(String[] args) {

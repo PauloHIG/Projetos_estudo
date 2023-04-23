@@ -16,6 +16,9 @@ public class TiposDados {
         //por convenção, são nomeadas com UPPERCASE e tem o final antes do tipo
         final double PI = 3.1415;
         System.out.println((PI*4)*(PI*4));
-    
+
+        //para mostrar o operador ! que inverte um valor booleano
+        boolean bola = false;
+        System.out.println(!bola);// espera-se true 
     }
 }
