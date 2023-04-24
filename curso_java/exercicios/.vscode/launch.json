@@ -4,7 +4,20 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
+        {
+            "type": "java",
+            "name": "Tabuada",
+            "request": "launch",
+            "mainClass": "dio.exercicios.Tabuada",
+            "projectName": "exercicios_be212456"
+        },
+        {
+            "type": "java",
+            "name": "Fatorial",
+            "request": "launch",
+            "mainClass": "dio.exercicios.Fatorial",
+            "projectName": "exercicios_be212456"
+        },
         {
             "type": "java",
             "name": "Current File",
@@ -66,7 +79,11 @@
             "request": "launch",
             "mainClass": "dio.aulas.UsandoArgs",
             "projectName": "exercicios_be212456",
-            "args": ["Paulo",24,113.35]
+            "args": [
+                "Paulo",
+                24,
+                113.35
+            ]
         }
     ]
 }
