@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Sobrecarga",
+            "request": "launch",
+            "mainClass": "dio.aulas.Sobrecarga",
+            "projectName": "exercicios_be212456"
+        },
+        {
+            "type": "java",
             "name": "Tabuada",
             "request": "launch",
             "mainClass": "dio.exercicios.Tabuada",
