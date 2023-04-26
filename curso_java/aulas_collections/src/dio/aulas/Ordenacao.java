@@ -2,6 +2,7 @@ package dio.aulas;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Ordenacao {
@@ -9,7 +10,7 @@ public class Ordenacao {
     //Descobri... eu tava criando a classe dentro da classe principal Ordenacao
     //uma das lições que eu aprendi é que classes sempre são instanciadas como se a classe fosse um tipo primitivo
     public static void main(String[] args) {
-       
+
         List<Gato> meusGatos = new ArrayList<>(){{
             add(new Gato("Jon", 12, "preto"));
             add(new Gato("Simba", 6, "tigrado"));
@@ -24,7 +25,15 @@ public class Ordenacao {
         System.out.println("Colocando em Ordem Natural");
         Collections.sort(meusGatos);//para funcionar é necessário o implements
         System.out.println(meusGatos);
-        //nota: consegui ordenar pela idade também alterando o método compareTo
+        
+        System.out.println("Ordenando pela idade");
+        //Collections.sort(meusGatos, new ComparatorIdade());
+        meusGatos.sort(new ComparatorIdade());
+        System.out.println(meusGatos);
+
+        System.out.println("Ordenando pela cor");
+        meusGatos.sort(new ComparatorCor());
+        System.out.println(meusGatos);
     }    
 
 }
@@ -58,11 +67,24 @@ class Gato implements Comparable<Gato>{
     }
     @Override
     public String toString() {
-        return "Nome do bichano: "+nome+"\n idade do bichano: "+idade+"\n cor do bichano: "+cor+"\n\n";
+        return "Nome: "+nome+" Idade "+idade+" Cor: "+cor+"\n";
     }
     @Override
     public int compareTo(Gato gato) {
         return this.getNome().compareToIgnoreCase(gato.getNome());
     }
    
+}
+class ComparatorIdade implements Comparator<Gato>{  
+    @Override
+    public int compare(Gato gato1, Gato proximoGato) {
+        return Integer.compare(gato1.getIdade(), proximoGato.getIdade());
+    }
+}
+class ComparatorCor implements Comparator<Gato>{
+    @Override
+    public int compare(Gato g1, Gato g2) {
+        return g1.getCor().compareToIgnoreCase(g2.getCor());
+    }
+    //lição de hoje: use o compareToIgnoreCase ao inves do compareTo, tem um bom motivo pra isso
 }
