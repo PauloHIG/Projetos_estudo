@@ -1,8 +1,5 @@
 package dio.aulas;
 
-import javax.sound.midi.Soundbank;
-import javax.sound.sampled.SourceDataLine;
-
 public class Sobrecarga {
     //um exemplo prático de aplicação de sobregarga
 
