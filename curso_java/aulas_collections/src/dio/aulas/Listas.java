@@ -12,15 +12,16 @@ public class Listas {
      * receba qualquer tipo de lista, por agora só consigo somar lista do tipo Double,
      * o que funciona apenas nessa classe para testes
      * @param lista lista do tipo double
-     * @return soma dos elementos da lista
+     * @return soma dos elementos da lista, sempre será Double mesmo se a lista for de inteiros
      */
-    public static double sum(List<Double> lista){
+    public static <anyKind extends Number>Double sum(List<anyKind> lista){
         Double soma=0d ;
-        for(Double elemento:lista){
-            soma+=elemento;
+        for(anyKind elemento:lista){
+            soma+=elemento.doubleValue();
         }
         return soma;
     }
+    
    
     public static void main(String[] args) {
         System.out.println("Crie uma lista e adicione 7 notas");

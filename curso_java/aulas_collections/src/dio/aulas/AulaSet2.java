@@ -65,7 +65,6 @@ class Serie implements Comparable<Serie>{
 }
 //crie um compareto que compare na ordem Titulo, Genero, tempo de ep
 class ComparatorTituloGeneroDuracao implements Comparator<Serie>{
-
     @Override
     public int compare(Serie serie1, Serie serie2) {
         int compara = serie1.getTitulo().compareToIgnoreCase(serie2.getTitulo());
@@ -74,5 +73,4 @@ class ComparatorTituloGeneroDuracao implements Comparator<Serie>{
         if (compara != 0) return compara;
         return serie1.getDuracaoEp().compareTo(serie2.getDuracaoEp());
     }
-
 }
