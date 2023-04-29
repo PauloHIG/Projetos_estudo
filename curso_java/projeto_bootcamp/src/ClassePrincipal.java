@@ -8,8 +8,6 @@ import dio.dominio.Mentoria;
 
 public class ClassePrincipal {
     public static void main(String[] args) {    
-        Dev aluno = new Dev("Paulo");
-        Bootcamp boot1 = new Bootcamp("Kotlin", "Bem vindo ao Bootcamp de Java e Kotlin");
         
         Mentoria ment = new Mentoria("Boas praticas","Não deixe seu código com gambiarras",LocalDate.of(2023, 4, 24));
         Curso pooEmJava = new Curso("POO em java", "Eu, Paulo, sinto que de fato estou aprendendo orientação a objetos", 3);
