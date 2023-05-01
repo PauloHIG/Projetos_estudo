@@ -24,7 +24,10 @@ public class ClassePrincipal {
 
         dev1.inscreverNoBootcamp(bootKotlin);
         dev1.exibeCursosInscritos();
-        
+        dev1.concluirConteudo(curso1);
+        System.out.println(dev1.calcularXp());
+        dev1.exibeCursosInscritos();
+
     }
 
 }

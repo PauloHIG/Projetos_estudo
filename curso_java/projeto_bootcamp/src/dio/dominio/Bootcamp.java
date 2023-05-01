@@ -21,7 +21,7 @@ public class Bootcamp {
     }
     public void receveDev(Dev dev){
         //TODO Garantir que somente o Dev possa decidir se matricular
-        //pois atualmente o bootcamp pode matricular um dev, o que eu não quero
+        //pois atualmente o bootcamp pode matricular um dev nele, o que eu não quero
         devsInscritos.add(dev);
         for(Conteudo conteudo:conteudos){
             dev.matricularEmConteudo(conteudo);
