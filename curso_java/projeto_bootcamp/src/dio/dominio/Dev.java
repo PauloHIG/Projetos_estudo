@@ -39,7 +39,9 @@ public class Dev {
     public void concluirConteudo(Conteudo conteudo){
         //progredir
         if(cursosConcluidos.contains(conteudo)) System.out.println("Curso já concluido");
-        else if(cursosInscritos.contains(conteudo)){cursosConcluidos.add(conteudo);cursosInscritos.remove(conteudo);}
+        else if(cursosInscritos.contains(conteudo)){
+                cursosConcluidos.add(conteudo);
+                cursosInscritos.remove(conteudo);}
         else System.out.println("Matricule-se e Realize as atividades primeiro");
     }
     public String getNome() {
