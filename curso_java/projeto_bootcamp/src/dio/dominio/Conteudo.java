@@ -14,7 +14,7 @@ public abstract class Conteudo {
     public abstract double calcularXp();
     @Override
     public String toString() {
-        return "Vim da classe mãe: " + titulo + ", Descrição: " + descricao + "]";
+        return "Título: " + titulo + ", Descrição: " + descricao + "]";
     }
 
     public static Double getXpPadrao() {
