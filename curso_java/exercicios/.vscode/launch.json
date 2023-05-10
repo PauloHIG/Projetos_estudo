@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Sobrecarga",
+            "request": "launch",
+            "mainClass": "dio.aulas.Sobrecarga",
+            "projectName": "exercicios_7203dfdf"
+        },
+        {
+            "type": "java",
+            "name": "UsandoArgs",
+            "request": "launch",
+            "mainClass": "dio.aulas.UsandoArgs",
+            "projectName": "exercicios_7203dfdf"
+        },
+        {
+            "type": "java",
+            "name": "Tabuada",
+            "request": "launch",
+            "mainClass": "dio.exercicios.Tabuada",
+            "projectName": "exercicios_7203dfdf"
+        },
+        {
+            "type": "java",
             "name": "TratamentoDeErros",
             "request": "launch",
             "mainClass": "dio.aulas.TratamentoDeErros",
