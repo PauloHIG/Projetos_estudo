@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ClasseTeste",
+            "request": "launch",
+            "mainClass": "dio.teste.ClasseTeste",
+            "projectName": "exercicios_7203dfdf"
+        },
+        {
+            "type": "java",
+            "name": "classeTeste",
+            "request": "launch",
+            "mainClass": "dio.teste.classeTeste",
+            "projectName": "exercicios_7203dfdf"
+        },
+        {
+            "type": "java",
+            "name": "Relacionais",
+            "request": "launch",
+            "mainClass": "dio.aulas.Relacionais",
+            "projectName": "exercicios_7203dfdf"
+        },
+        {
+            "type": "java",
+            "name": "CalculadoraSimples",
+            "request": "launch",
+            "mainClass": "dio.exercicios.CalculadoraSimples",
+            "projectName": "exercicios_7203dfdf"
+        },
+        {
+            "type": "java",
             "name": "Sobrecarga",
             "request": "launch",
             "mainClass": "dio.aulas.Sobrecarga",
