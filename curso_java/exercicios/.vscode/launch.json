@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestaAPIBuscador",
+            "request": "launch",
+            "mainClass": "dio.exercicios.TestaAPIBuscador",
+            "projectName": "exercicios_7203dfdf"
+        },
+        {
+            "type": "java",
+            "name": "TestaAPIBuscador",
+            "request": "launch",
+            "mainClass": "TestaAPIBuscador",
+            "projectName": "exercicios_7203dfdf"
+        },
+        {
+            "type": "java",
+            "name": "ExperimentandoApi",
+            "request": "launch",
+            "mainClass": "dio.exercicios.ExperimentandoApi",
+            "projectName": "exercicios_7203dfdf"
+        },
+        {
+            "type": "java",
             "name": "ClasseTeste",
             "request": "launch",
             "mainClass": "dio.teste.ClasseTeste",
