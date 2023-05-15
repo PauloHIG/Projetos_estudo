@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CriaArquivo",
+            "request": "launch",
+            "mainClass": "dio.exercicios.CriaArquivo",
+            "projectName": "exercicios_7203dfdf"
+        },
+        {
+            "type": "java",
             "name": "TestaAPIBuscador",
             "request": "launch",
             "mainClass": "dio.exercicios.TestaAPIBuscador",
