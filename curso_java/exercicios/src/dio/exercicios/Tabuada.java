@@ -7,9 +7,10 @@ public class Tabuada {
         }
     }
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
-        System.out.println("Digite o numero do qual quer saber a tabuada");
-        int numero = entrada.nextInt();
-        exibirTabuada(numero);
+        try (Scanner entrada = new Scanner(System.in)) {
+            System.out.println("Digite o numero do qual quer saber a tabuada");
+            int numero = entrada.nextInt();
+            exibirTabuada(numero);
+        }
     }
 }
