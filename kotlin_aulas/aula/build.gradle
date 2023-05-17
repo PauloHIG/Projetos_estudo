@@ -8,7 +8,7 @@ plugins {
 	id 'org.jetbrains.kotlin.plugin.jpa' version '1.7.22'
 }
 
-group = 'dio.api-rest'
+group = 'aula.dio.paulo'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
