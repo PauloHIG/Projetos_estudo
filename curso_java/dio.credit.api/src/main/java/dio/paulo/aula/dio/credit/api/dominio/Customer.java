@@ -9,7 +9,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,8 +24,11 @@ public class Customer {
     @Column(nullable = false,unique = true) private String email;
     @Column(nullable = false) private String password;
 
+    @Embedded
+    private Address address;
 
-    @Embedded @OneToOne(optional = false) private Address adress;
     @Column(nullable = true) private BigDecimal income;
-    @OneToMany() private List<Credit> credits;
+    
+    @OneToMany()
+    private List<Credit> credits;
 }

@@ -4,13 +4,24 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+@Entity
 public class Credit {
-    private UUID creditCode = UUID.randomUUID();
-    private BigDecimal creditValue;
-    private LocalDate dayFirstInstallment;
-    private int numberOfInstallments;
-    private Status status;
-    private Customer customer;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false,unique = true) private UUID creditCode = UUID.randomUUID();
+    @Column(nullable = false) private BigDecimal creditValue;
+    @Column(nullable = false) private LocalDate dayFirstInstallment;
+    @Column(nullable = false) private int numberOfInstallments;
+    @Enumerated private Status status;
+    @ManyToOne private Customer customer;
+    
     
 }
