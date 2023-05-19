@@ -31,4 +31,12 @@ public class Customer {
     
     @OneToMany(mappedBy = "customer")
     private List<Credit> credits;
+
+    public List<Credit> getCredits() {
+        return credits;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
