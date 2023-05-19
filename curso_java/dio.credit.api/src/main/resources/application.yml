@@ -1,4 +1,4 @@
-#veja só, aprendenso a usar spring
+#veja só, aprendendo a usar spring
 spring:
     datasource:
         url: jdbc:h2:mem:banco_dados_credito
@@ -9,6 +9,8 @@ spring:
             settings:
                 trace: false
                 web-allow-others: false
-    #jpa:
-    #    hibernate:
-    #        ddl-auto: create-drop
+    jpa:
+        show-sql?: true
+        hibernate:
+            proprerties:
+                hibernate.format_sql: true
