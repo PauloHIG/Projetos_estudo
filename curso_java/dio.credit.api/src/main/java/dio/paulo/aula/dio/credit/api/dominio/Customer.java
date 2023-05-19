@@ -29,6 +29,6 @@ public class Customer {
 
     @Column(nullable = true) private BigDecimal income;
     
-    @OneToMany()
+    @OneToMany(mappedBy = "customer")
     private List<Credit> credits;
 }
