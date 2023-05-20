@@ -20,8 +20,16 @@ public class Credit {
     @Column(nullable = false) private BigDecimal creditValue;
     @Column(nullable = false) private LocalDate dayFirstInstallment;
     @Column(nullable = false) private int numberOfInstallments;
-    @Enumerated private Status status;
+    @Enumerated private Status status = Status.IN_PROGRESS;
     @ManyToOne private Customer customer;
+    
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
     
     
 }
