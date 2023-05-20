@@ -28,13 +28,13 @@ public class CustomerControler {
         Customer customer = this.customerService.save(customerDto.toEntity());
         return "Os dados de "+customer.getName()+" foram salvos com sucesso";
     }
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     CustomerView findById(@PathVariable Long id){
         Customer customer = this.customerService.findById(id);
         return new CustomerView(customer);
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     void deleteCustomer(@PathVariable long id){this.deleteCustomer(id);}
 
 }
