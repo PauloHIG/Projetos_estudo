@@ -23,6 +23,9 @@ public class Credit {
     @Enumerated private Status status = Status.IN_PROGRESS;
     @ManyToOne private Customer customer;
     
+    public UUID getCreditCode() {
+        return creditCode;
+    }
     public Customer getCustomer() {
         return customer;
     }
