@@ -30,6 +30,38 @@ public class Credit {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    public BigDecimal getCreditValue() {
+        return creditValue;
+    }
+
+    public void setCreditValue(BigDecimal creditValue) {
+        this.creditValue = creditValue;
+    }
+
+    public LocalDate getDayFirstInstallment() {
+        return dayFirstInstallment;
+    }
+
+    public void setDayFirstInstallment(LocalDate dayFirstInstallment) {
+        this.dayFirstInstallment = dayFirstInstallment;
+    }
+
+    public int getNumberOfInstallments() {
+        return numberOfInstallments;
+    }
+
+    public void setNumberOfInstallments(int numberOfInstallments) {
+        this.numberOfInstallments = numberOfInstallments;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
     
     
 }

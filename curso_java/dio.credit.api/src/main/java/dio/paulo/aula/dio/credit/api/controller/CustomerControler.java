@@ -2,13 +2,16 @@ package dio.paulo.aula.dio.credit.api.controller;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dio.paulo.aula.dio.credit.api.controller.dto.CustomerDto;
+import dio.paulo.aula.dio.credit.api.controller.dto.CustomerUpdateDto;
 import dio.paulo.aula.dio.credit.api.controller.dto.CustomerView;
 import dio.paulo.aula.dio.credit.api.dominio.Customer;
 import dio.paulo.aula.dio.credit.api.service.impl.CustomerService;
@@ -18,11 +21,10 @@ import dio.paulo.aula.dio.credit.api.service.impl.CustomerService;
 @RequestMapping("/api/customer")
 public class CustomerControler {
     CustomerService customerService;
-    
     public CustomerControler(CustomerService customerService) {
         this.customerService = customerService;
     }
-
+    //(CRUD) create(post) read(get, consulta) update(patch) delete
     @PostMapping
     String saveCustomer(@RequestBody CustomerDto customerDto){
         Customer customer = this.customerService.save(customerDto.toEntity());
@@ -37,4 +39,10 @@ public class CustomerControler {
     @DeleteMapping("/{id}")
     void deleteCustomer(@PathVariable long id){this.deleteCustomer(id);}
 
+    @PatchMapping
+    CustomerView updateCustomer(@RequestParam(value = "customerId") long id,@RequestBody CustomerUpdateDto customerUpdateDto){
+        Customer customer = this.customerService.findById(id);
+        Customer customerUpdated = this.customerService.save(customerUpdateDto.toEntity(customer));
+        return new CustomerView(customerUpdated);
+    }
 }
