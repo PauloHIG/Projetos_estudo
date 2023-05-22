@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,27 +30,28 @@ public class CreditController {
     }
     //(CRUD) create(post) read(get, consulta) update(patch) delete
     @PostMapping
-    String saveCredit(@RequestBody CreditDto creditDto){
+    ResponseEntity<String> saveCredit(@RequestBody CreditDto creditDto){
         Credit credit = creditDto.toEntity();
         this.creditService.save(credit);
-        return "Credito "+credit+"salvo com sucesso";
+        return ResponseEntity.status(HttpStatus.CREATED).body("Credito "+credit+"salvo com sucesso");
     }
     @GetMapping("customer/{id}")
-    public List<CreditView> findAllByCustomerId(@PathVariable Long id){
+    ResponseEntity<List<CreditView>> findAllByCustomerId(@PathVariable Long id){
         List<Credit> creditList = creditService.findAllByCustomer(id);
         List<CreditView> creditViewList = new ArrayList<CreditView>();
         for(Credit credit:creditList){
             creditViewList.add(new CreditView(credit));
         }
-        return creditViewList;
+        return ResponseEntity.status(HttpStatus.OK).body(creditViewList);
     }
     
     @GetMapping("/{id}")
-    public CreditView findByCreditCode(
+    ResponseEntity<CreditView> findByCreditCode(
     @RequestParam(value = "customerId") long customerId,
     @PathVariable UUID creditCode){
         Credit credit = creditService.findByCreditCode(customerId, creditCode);
-        return new CreditView(credit);
+        CreditView creditView = new CreditView(credit);
+        return ResponseEntity.status(HttpStatus.OK).body(creditView);
     }
 
 }

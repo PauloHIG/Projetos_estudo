@@ -1,5 +1,7 @@
 package dio.paulo.aula.dio.credit.api.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -24,25 +26,29 @@ public class CustomerControler {
     public CustomerControler(CustomerService customerService) {
         this.customerService = customerService;
     }
-    //(CRUD) create(post) read(get, consulta) update(patch) delete
+
     @PostMapping
-    String saveCustomer(@RequestBody CustomerDto customerDto){
+    ResponseEntity<String> saveCustomer(@RequestBody CustomerDto customerDto){
         Customer customer = this.customerService.save(customerDto.toEntity());
-        return "Os dados de "+customer.getName()+" foram salvos com sucesso";
+        return ResponseEntity.status(HttpStatus.CREATED).body("Os dados de "+customer.getName()+" foram salvos com sucesso");
     }
     @GetMapping("/{id}")
-    CustomerView findById(@PathVariable Long id){
+    ResponseEntity<CustomerView> findById(@PathVariable Long id){
         Customer customer = this.customerService.findById(id);
-        return new CustomerView(customer);
+        CustomerView customerView = new CustomerView(customer);
+        return ResponseEntity.status(HttpStatus.OK).body(customerView);
     }
 
     @DeleteMapping("/{id}")
     void deleteCustomer(@PathVariable long id){this.deleteCustomer(id);}
 
     @PatchMapping
-    CustomerView updateCustomer(@RequestParam(value = "customerId") long id,@RequestBody CustomerUpdateDto customerUpdateDto){
+    ResponseEntity<String> updateCustomer(@RequestParam(value = "customerId") long id,
+    @RequestBody CustomerUpdateDto customerUpdateDto){
         Customer customer = this.customerService.findById(id);
         Customer customerUpdated = this.customerService.save(customerUpdateDto.toEntity(customer));
-        return new CustomerView(customerUpdated);
+        CustomerView customerView = new CustomerView(customerUpdated);
+        return ResponseEntity.status(HttpStatus.OK)
+        .body("Usuario atualizado com sucesso"+customerView);
     }
 }
