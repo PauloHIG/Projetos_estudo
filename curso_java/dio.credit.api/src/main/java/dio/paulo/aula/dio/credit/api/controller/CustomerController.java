@@ -21,16 +21,22 @@ import dio.paulo.aula.dio.credit.api.service.impl.CustomerService;
 
 @RestController
 @RequestMapping("/api/customer")
-public class CustomerControler {
+public class CustomerController {
     CustomerService customerService;
-    public CustomerControler(CustomerService customerService) {
+    public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
 
     @PostMapping
     ResponseEntity<String> saveCustomer(@RequestBody CustomerDto customerDto){
-        Customer customer = this.customerService.save(customerDto.toEntity());
-        return ResponseEntity.status(HttpStatus.CREATED).body("Os dados de "+customer.getName()+" foram salvos com sucesso");
+        try {
+            Customer customer = this.customerService.save(customerDto.toEntity());
+            return ResponseEntity.status(HttpStatus.CREATED).body("Os dados de " + customer.getName() + " foram salvos com sucesso");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .body("Ocorreu um erro ao salvar os dados do cliente: " + e.getMessage() + customerDto);
+        }
+        
     }
     @GetMapping("/{id}")
     ResponseEntity<CustomerView> findById(@PathVariable Long id){
@@ -40,7 +46,7 @@ public class CustomerControler {
     }
 
     @DeleteMapping("/{id}")
-    void deleteCustomer(@PathVariable long id){this.deleteCustomer(id);}
+    void deleteCustomer(@PathVariable long id){this.customerService.delete(id);;}
 
     @PatchMapping
     ResponseEntity<String> updateCustomer(@RequestParam(value = "customerId") long id,

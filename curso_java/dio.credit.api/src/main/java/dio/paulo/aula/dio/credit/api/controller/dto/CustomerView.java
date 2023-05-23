@@ -17,7 +17,7 @@ public class CustomerView {
         this.cpf = customer.getCpf();
         this.email = customer.getEmail();
         this.income = customer.getIncome();
-        this.address_zipCode = customer.getAddress().getZipCode();
-        this.address_street = customer.getAddress().getStreet();
+        this.address_zipCode = customer.getAddress().zipCode;
+        this.address_street = customer.getAddress().street;
     }
 }

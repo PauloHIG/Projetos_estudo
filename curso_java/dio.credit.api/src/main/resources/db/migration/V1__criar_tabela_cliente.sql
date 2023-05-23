@@ -5,7 +5,7 @@ CREATE TABLE Cliente (
   cpf VARCHAR(14) NOT NULL UNIQUE,
   email VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
-  address_zipCode VARCHAR(10) NOT NULL,
-  address_street VARCHAR(255) NOT NULL,
+  zip_Code VARCHAR(10) NOT NULL,
+  street VARCHAR(255) NOT NULL,
   income DECIMAL(19, 2)
 );

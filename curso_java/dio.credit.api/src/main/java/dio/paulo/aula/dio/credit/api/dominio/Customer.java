@@ -23,12 +23,11 @@ public class Customer {
     @Column(nullable = false,unique = true) private String cpf;
     @Column(nullable = false,unique = true) private String email;
     @Column(nullable = false) private String password;
-
+    @Column(nullable = true) private BigDecimal income;
+    
     @Embedded
     private Address address;
 
-    @Column(nullable = true) private BigDecimal income;
-    
     @OneToMany(mappedBy = "customer")
     private List<Credit> credits;
 
