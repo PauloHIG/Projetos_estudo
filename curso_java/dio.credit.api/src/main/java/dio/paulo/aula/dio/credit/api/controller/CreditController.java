@@ -31,11 +31,18 @@ public class CreditController {
     //(CRUD) create(post) read(get, consulta) update(patch) delete
     @PostMapping
     ResponseEntity<String> saveCredit(@RequestBody CreditDto creditDto){
-        Credit credit = creditDto.toEntity();
-        this.creditService.save(credit);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Credito "+credit+"salvo com sucesso");
+        try {
+            creditDto.creditService = creditService;
+            Credit credit = creditDto.toEntity();
+            
+            this.creditService.save(credit);
+            return ResponseEntity.status(HttpStatus.CREATED).body("Credito "+credit+"salvo com sucesso");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+        
     }
-    @GetMapping("customer/{id}")
+    @GetMapping("/customer/{id}")
     ResponseEntity<List<CreditView>> findAllByCustomerId(@PathVariable Long id){
         List<Credit> creditList = creditService.findAllByCustomer(id);
         List<CreditView> creditViewList = new ArrayList<CreditView>();
@@ -45,7 +52,7 @@ public class CreditController {
         return ResponseEntity.status(HttpStatus.OK).body(creditViewList);
     }
     
-    @GetMapping("/{id}")
+    @GetMapping("/{uuid}")
     ResponseEntity<CreditView> findByCreditCode(
     @RequestParam(value = "customerId") long customerId,
     @PathVariable UUID creditCode){
@@ -55,3 +62,5 @@ public class CreditController {
     }
 
 }
+
+

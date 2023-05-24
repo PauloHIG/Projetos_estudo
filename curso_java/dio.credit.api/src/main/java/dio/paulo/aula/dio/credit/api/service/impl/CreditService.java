@@ -8,6 +8,7 @@ import javax.management.RuntimeErrorException;
 import org.springframework.stereotype.Service;
 
 import dio.paulo.aula.dio.credit.api.dominio.Credit;
+import dio.paulo.aula.dio.credit.api.dominio.Customer;
 import dio.paulo.aula.dio.credit.api.repository.CreditRepository;
 import dio.paulo.aula.dio.credit.api.service.ICreditService;
 
@@ -15,6 +16,11 @@ import dio.paulo.aula.dio.credit.api.service.ICreditService;
 public class CreditService implements ICreditService {
     private CreditRepository creditRepository;
     private CustomerService customerService;
+    public CreditService(CreditRepository creditRepository, CustomerService customerService) {
+        this.creditRepository = creditRepository;
+        this.customerService = customerService;
+    }
+
     @Override
     public Credit save(Credit credit) {
         credit.setCustomer(customerService.findById(credit.getCustomer().getId()));
@@ -34,6 +40,10 @@ public class CreditService implements ICreditService {
         }else{
             throw new RuntimeErrorException(null, "Contate o administrador");
         }
+    }
+
+    public Customer findCustomerById(long id){
+        return customerService.findById(id);
     }
     
 }

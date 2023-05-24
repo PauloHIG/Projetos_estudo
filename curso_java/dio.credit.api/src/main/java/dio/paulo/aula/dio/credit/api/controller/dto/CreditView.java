@@ -7,12 +7,12 @@ import dio.paulo.aula.dio.credit.api.dominio.Credit;
 import dio.paulo.aula.dio.credit.api.dominio.Status;
 
 public class CreditView {
-    UUID creditCode;
-    BigDecimal creditValue;
-    int numberOfInstallments;
-    Status status;
-    String emailCustomer;
-    BigDecimal incomeCustomer;
+    public UUID creditCode;
+    public BigDecimal creditValue;
+    public int numberOfInstallments;
+    public Status status;
+    public String emailCustomer;
+    public BigDecimal incomeCustomer;
     public CreditView(Credit credit) {
         this.creditCode = credit.getCreditCode();
         this.creditValue = credit.getCreditValue();

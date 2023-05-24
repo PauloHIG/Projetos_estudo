@@ -65,6 +65,12 @@ public class Credit {
     public void setStatus(Status status) {
         this.status = status;
     }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setCreditCode(UUID creditCode) {
+        this.creditCode = creditCode;
+    }
     
     
 }
