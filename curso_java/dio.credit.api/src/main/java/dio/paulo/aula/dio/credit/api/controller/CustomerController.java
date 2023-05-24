@@ -45,8 +45,8 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.OK).body(customerView);
     }
 
-    @DeleteMapping("/{id}")
-    void deleteCustomer(@PathVariable long id){this.customerService.delete(id);;}
+    @DeleteMapping
+    void deleteCustomer(@RequestParam(value = "customerId") long id){this.customerService.delete(id);}
 
     @PatchMapping
     ResponseEntity<String> updateCustomer(@RequestParam(value = "customerId") long id,
@@ -55,6 +55,6 @@ public class CustomerController {
         Customer customerUpdated = this.customerService.save(customerUpdateDto.toEntity(customer));
         CustomerView customerView = new CustomerView(customerUpdated);
         return ResponseEntity.status(HttpStatus.OK)
-        .body("Usuario atualizado com sucesso"+customerView);
+        .body("Usuario "+customerView.name+"atualizado com sucesso");
     }
 }
