@@ -11,14 +11,14 @@ public class CustomerDto {
         return "CustomerDto [name=" + name + ", lastName=" + lastName + "]";
     }
 
-    String name;
-    String lastName;
-    String cpf;
-    String email;
-    String password;
-    BigDecimal income;
-    String address_zipCode;
-    String address_street;
+    public String name;
+    public String lastName;
+    public String cpf;
+    public String email;
+    public String password;
+    public BigDecimal income;
+    public String address_zipCode;
+    public String address_street;
     
     public Customer toEntity(){
         Customer customer = new Customer();

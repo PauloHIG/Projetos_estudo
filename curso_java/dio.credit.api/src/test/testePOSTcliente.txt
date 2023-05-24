@@ -1,0 +1,20 @@
+{
+    "name": "Kaiji",
+    "lastName": "Ittou",
+    "cpf": "000123123",
+    "email": "Kaiji123@doido",
+    "password": "Fracs",
+    "income": 0.1,
+    "address_zipCode": "4412312",
+    "address_street": "Rua A 00"
+}
+{
+    "name": "Greg",
+    "lastName": "Haffley",
+    "cpf": "123456789",
+    "email": "Greg123@doido",
+    "password": "Rico e famoso",
+    "income": 123.0,
+    "address_zipCode": "12343",
+    "address_street": "Rua ABC 123"
+}

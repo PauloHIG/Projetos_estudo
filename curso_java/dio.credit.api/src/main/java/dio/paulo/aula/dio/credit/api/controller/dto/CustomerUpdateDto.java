@@ -5,11 +5,11 @@ import java.math.BigDecimal;
 import dio.paulo.aula.dio.credit.api.dominio.Customer;
 
 public class CustomerUpdateDto {
-    String name;
-    String lastName;
-    BigDecimal income;
-    String address_zipCode;
-    String address_street;
+    public String name;
+    public String lastName;
+    public BigDecimal income;
+    public String address_zipCode;
+    public String address_street;
     
     public Customer toEntity(Customer customer){
         customer.setName(this.name);
