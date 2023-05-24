@@ -55,6 +55,6 @@ public class CustomerController {
         Customer customerUpdated = this.customerService.save(customerUpdateDto.toEntity(customer));
         CustomerView customerView = new CustomerView(customerUpdated);
         return ResponseEntity.status(HttpStatus.OK)
-        .body("Usuario "+customerView.name+"atualizado com sucesso");
+        .body("Usuario "+customerView.name  +"atualizado com sucesso");
     }
 }
