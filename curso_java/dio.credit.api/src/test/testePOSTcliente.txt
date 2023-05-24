@@ -1,20 +1,30 @@
-{
+[{
     "name": "Kaiji",
     "lastName": "Ittou",
-    "cpf": "000123123",
+    "cpf": "48471173018",
     "email": "Kaiji123@doido",
     "password": "Fracs",
     "income": 0.1,
     "address_zipCode": "4412312",
     "address_street": "Rua A 00"
-}
+},
 {
     "name": "Greg",
     "lastName": "Haffley",
-    "cpf": "123456789",
+    "cpf": "60804979057",
     "email": "Greg123@doido",
     "password": "Rico e famoso",
     "income": 123.0,
     "address_zipCode": "12343",
     "address_street": "Rua ABC 123"
-}
+},
+{
+    "name": "Quem",
+    "lastName": "apenas Quem",
+    "cpf": "97842630097",
+    "email": "quem@qualqueremail",
+    "password": "say my name",
+    "income": 1000000.0,
+    "address_zipCode": "000",
+    "address_street": "Atrasadis"
+}]

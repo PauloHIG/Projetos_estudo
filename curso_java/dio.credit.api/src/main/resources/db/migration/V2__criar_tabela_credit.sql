@@ -6,5 +6,5 @@ CREATE TABLE Credit (
   number_of_installments INT NOT NULL,
   status VARCHAR(50),
   customer_id BIGINT,
-  FOREIGN KEY (customer_id) REFERENCES Cliente (id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY (customer_id) REFERENCES Customer (id) ON DELETE CASCADE ON UPDATE CASCADE
 );

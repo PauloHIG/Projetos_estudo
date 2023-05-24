@@ -1,5 +1,7 @@
 package dio.paulo.aula.dio.credit.api.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,10 +36,32 @@ public class CustomerController {
             return ResponseEntity.status(HttpStatus.CREATED).body("Os dados de " + customer.getName() + " foram salvos com sucesso");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-            .body("Ocorreu um erro ao salvar os dados do cliente: " + e.getMessage() + customerDto);
+            .body("Ocorreu um erro ao salvar os dados do cliente: " + e.getMessage());
         }
         
     }
+    @PostMapping("save_multiple")
+    ResponseEntity<String> saveMultipleCustomer(@RequestBody List<CustomerDto> listOfCustomers){
+        String savedCustomers="";
+        ResponseEntity<String> retorno;
+        try {
+            for(CustomerDto customerInsertData:listOfCustomers){
+                retorno = saveCustomer(customerInsertData);
+                savedCustomers += "\n"+customerInsertData.name;
+                if(retorno.getStatusCode()==HttpStatus.INTERNAL_SERVER_ERROR){
+                    return retorno;
+                }
+            }
+            return ResponseEntity.status(HttpStatus.CREATED)
+            .body("Todos os clientes foram salvos "+savedCustomers);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .body("Ocorreu um erro ao salvar um cliente "+e.getMessage()+"\nClientes salvos até aqui"+savedCustomers);
+        }
+        
+
+    }
+
     @GetMapping("/{id}")
     ResponseEntity<CustomerView> findById(@PathVariable Long id){
         Customer customer = this.customerService.findById(id);
@@ -55,6 +79,6 @@ public class CustomerController {
         Customer customerUpdated = this.customerService.save(customerUpdateDto.toEntity(customer));
         CustomerView customerView = new CustomerView(customerUpdated);
         return ResponseEntity.status(HttpStatus.OK)
-        .body("Usuario "+customerView.name  +"atualizado com sucesso");
+        .body("Usuario "+customerView.name +" atualizado com sucesso");
     }
 }

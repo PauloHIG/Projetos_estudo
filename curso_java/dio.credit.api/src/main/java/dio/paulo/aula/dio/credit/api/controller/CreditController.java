@@ -36,7 +36,7 @@ public class CreditController {
             Credit credit = creditDto.toEntity();
             
             this.creditService.save(credit);
-            return ResponseEntity.status(HttpStatus.CREATED).body("Credito "+credit+"salvo com sucesso");
+            return ResponseEntity.status(HttpStatus.CREATED).body("Credito de "+credit.getCustomer().getName()+" salvo com sucesso");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
@@ -52,10 +52,10 @@ public class CreditController {
         return ResponseEntity.status(HttpStatus.OK).body(creditViewList);
     }
     
-    @GetMapping("/{uuid}")
+    @GetMapping
     ResponseEntity<CreditView> findByCreditCode(
     @RequestParam(value = "customerId") long customerId,
-    @PathVariable UUID creditCode){
+    @RequestParam(value = "creditUUID") UUID creditCode){
         Credit credit = creditService.findByCreditCode(customerId, creditCode);
         CreditView creditView = new CreditView(credit);
         return ResponseEntity.status(HttpStatus.OK).body(creditView);

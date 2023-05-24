@@ -10,7 +10,6 @@ public class CustomerDto {
     public String toString() {
         return "CustomerDto [name=" + name + ", lastName=" + lastName + "]";
     }
-
     public String name;
     public String lastName;
     public String cpf;

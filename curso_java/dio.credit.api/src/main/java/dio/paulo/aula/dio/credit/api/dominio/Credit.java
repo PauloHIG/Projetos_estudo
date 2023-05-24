@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.Future;
 @Entity
 public class Credit {
     @Id
@@ -18,7 +19,10 @@ public class Credit {
     private Long id;
     @Column(nullable = false,unique = true) private UUID creditCode = UUID.randomUUID();
     @Column(nullable = false) private BigDecimal creditValue;
+    
+    @Future
     @Column(nullable = false) private LocalDate dayFirstInstallment;
+    
     @Column(nullable = false) private int numberOfInstallments;
     @Enumerated private Status status = Status.IN_PROGRESS;
     @ManyToOne private Customer customer;
