@@ -8,6 +8,5 @@ public class ExceptionDetails {
     public LocalDateTime timeStamp;
     public int status;
     public String exception;
-    
     public Map<String,String> details;
 }

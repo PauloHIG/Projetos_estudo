@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import dio.paulo.aula.dio.credit.api.entidade.Customer;
+import dio.paulo.aula.dio.credit.api.exception.BusinessException;
 import dio.paulo.aula.dio.credit.api.repository.CustomerRepository;
 import dio.paulo.aula.dio.credit.api.service.ICustomerService;
 
@@ -22,12 +23,13 @@ public class CustomerService implements ICustomerService{
 
     @Override
     public void delete(long id) {
+        customerRepository.findById(id);
         customerRepository.deleteById(id);
     }
 
     @Override
     public Customer findById(long id) {
         Optional<Customer> optionalCustomer = customerRepository.findById(id);
-        return optionalCustomer.orElseThrow(() -> new RuntimeException("Usuário do ID: " + id + " não encontrado"));
+        return optionalCustomer.orElseThrow(() -> new BusinessException("Usuário do ID: " + id + " não encontrado"));
     }
 }
