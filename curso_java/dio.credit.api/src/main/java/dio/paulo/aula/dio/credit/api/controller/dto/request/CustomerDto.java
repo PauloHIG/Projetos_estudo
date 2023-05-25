@@ -1,19 +1,31 @@
-package dio.paulo.aula.dio.credit.api.controller.dto;
+package dio.paulo.aula.dio.credit.api.controller.dto.request;
 
 import java.math.BigDecimal;
 
-import dio.paulo.aula.dio.credit.api.dominio.Address;
-import dio.paulo.aula.dio.credit.api.dominio.Customer;
+import org.hibernate.validator.constraints.br.CPF;
+
+import dio.paulo.aula.dio.credit.api.entidade.Address;
+import dio.paulo.aula.dio.credit.api.entidade.Customer;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 public class CustomerDto {
     @Override
     public String toString() {
         return "CustomerDto [name=" + name + ", lastName=" + lastName + "]";
     }
+    @NotBlank(message = "Tu tem nome, coloca teu nome")
     public String name;
+
+    @NotBlank(message = "Tu tem sobrenome, coloca teu sobrenome")
     public String lastName;
+    
+    @CPF(message = "CPF inválido")
     public String cpf;
+    
+    @Email(message = "Coloque um e-mail válido")
     public String email;
+    @NotBlank(message = "Defina uma senha")
     public String password;
     public BigDecimal income;
     public String address_zipCode;

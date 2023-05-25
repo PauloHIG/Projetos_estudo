@@ -1,4 +1,4 @@
-package dio.paulo.aula.dio.credit.api.dominio;
+package dio.paulo.aula.dio.credit.api.entidade;
 
 
 import jakarta.persistence.Column;

@@ -1,10 +1,10 @@
-package dio.paulo.aula.dio.credit.api.controller.dto;
+package dio.paulo.aula.dio.credit.api.controller.dto.response;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import dio.paulo.aula.dio.credit.api.dominio.Credit;
-import dio.paulo.aula.dio.credit.api.dominio.Status;
+import dio.paulo.aula.dio.credit.api.entidade.Credit;
+import dio.paulo.aula.dio.credit.api.entidade.Status;
 
 public class CreditView {
     public UUID creditCode;

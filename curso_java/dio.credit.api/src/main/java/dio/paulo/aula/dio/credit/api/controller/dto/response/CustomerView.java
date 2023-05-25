@@ -1,8 +1,8 @@
-package dio.paulo.aula.dio.credit.api.controller.dto;
+package dio.paulo.aula.dio.credit.api.controller.dto.response;
 
 import java.math.BigDecimal;
 
-import dio.paulo.aula.dio.credit.api.dominio.Customer;
+import dio.paulo.aula.dio.credit.api.entidade.Customer;
 
 public class CustomerView {
     public String name;

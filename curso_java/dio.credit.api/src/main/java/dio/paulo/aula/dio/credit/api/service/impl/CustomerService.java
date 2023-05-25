@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import dio.paulo.aula.dio.credit.api.dominio.Customer;
+import dio.paulo.aula.dio.credit.api.entidade.Customer;
 import dio.paulo.aula.dio.credit.api.repository.CustomerRepository;
 import dio.paulo.aula.dio.credit.api.service.ICustomerService;
 

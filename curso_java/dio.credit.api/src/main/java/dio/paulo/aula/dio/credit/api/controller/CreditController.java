@@ -15,10 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import dio.paulo.aula.dio.credit.api.controller.dto.CreditDto;
-import dio.paulo.aula.dio.credit.api.controller.dto.CreditView;
-import dio.paulo.aula.dio.credit.api.dominio.Credit;
+import dio.paulo.aula.dio.credit.api.controller.dto.request.CreditDto;
+import dio.paulo.aula.dio.credit.api.controller.dto.response.CreditView;
+import dio.paulo.aula.dio.credit.api.entidade.Credit;
 import dio.paulo.aula.dio.credit.api.service.impl.CreditService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/credit")
@@ -30,17 +31,11 @@ public class CreditController {
     }
     //(CRUD) create(post) read(get, consulta) update(patch) delete
     @PostMapping
-    ResponseEntity<String> saveCredit(@RequestBody CreditDto creditDto){
-        try {
-            creditDto.creditService = creditService;
-            Credit credit = creditDto.toEntity();
-            
-            this.creditService.save(credit);
-            return ResponseEntity.status(HttpStatus.CREATED).body("Credito de "+credit.getCustomer().getName()+" salvo com sucesso");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
-        
+    ResponseEntity<String> saveCredit(@Valid @RequestBody CreditDto creditDto){
+        creditDto.creditService = creditService;
+        Credit credit = creditDto.toEntity();
+        this.creditService.save(credit);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Credito de "+credit.getCustomer().getName()+" salvo com sucesso");
     }
     @GetMapping("/customer/{id}")
     ResponseEntity<List<CreditView>> findAllByCustomerId(@PathVariable Long id){

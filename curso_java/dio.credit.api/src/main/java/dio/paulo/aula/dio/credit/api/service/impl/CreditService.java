@@ -7,8 +7,8 @@ import javax.management.RuntimeErrorException;
 
 import org.springframework.stereotype.Service;
 
-import dio.paulo.aula.dio.credit.api.dominio.Credit;
-import dio.paulo.aula.dio.credit.api.dominio.Customer;
+import dio.paulo.aula.dio.credit.api.entidade.Credit;
+import dio.paulo.aula.dio.credit.api.entidade.Customer;
 import dio.paulo.aula.dio.credit.api.repository.CreditRepository;
 import dio.paulo.aula.dio.credit.api.service.ICreditService;
 

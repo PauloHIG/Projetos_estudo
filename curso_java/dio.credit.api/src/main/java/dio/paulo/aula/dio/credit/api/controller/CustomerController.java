@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import dio.paulo.aula.dio.credit.api.controller.dto.CustomerDto;
-import dio.paulo.aula.dio.credit.api.controller.dto.CustomerUpdateDto;
-import dio.paulo.aula.dio.credit.api.controller.dto.CustomerView;
-import dio.paulo.aula.dio.credit.api.dominio.Customer;
+import dio.paulo.aula.dio.credit.api.controller.dto.request.CustomerDto;
+import dio.paulo.aula.dio.credit.api.controller.dto.request.CustomerUpdateDto;
+import dio.paulo.aula.dio.credit.api.controller.dto.response.CustomerView;
+import dio.paulo.aula.dio.credit.api.entidade.Customer;
 import dio.paulo.aula.dio.credit.api.service.impl.CustomerService;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -30,15 +31,9 @@ public class CustomerController {
     }
 
     @PostMapping
-    ResponseEntity<String> saveCustomer(@RequestBody CustomerDto customerDto){
-        try {
-            Customer customer = this.customerService.save(customerDto.toEntity());
-            return ResponseEntity.status(HttpStatus.CREATED).body("Os dados de " + customer.getName() + " foram salvos com sucesso");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-            .body("Ocorreu um erro ao salvar os dados do cliente: " + e.getMessage());
-        }
-        
+    ResponseEntity<String> saveCustomer(@RequestBody @Valid CustomerDto customerDto){
+        Customer customer = this.customerService.save(customerDto.toEntity());
+        return ResponseEntity.status(HttpStatus.CREATED).body("Os dados de " + customer.getName() + " foram salvos com sucesso");
     }
     @PostMapping("save_multiple")
     ResponseEntity<String> saveMultipleCustomer(@RequestBody List<CustomerDto> listOfCustomers){
@@ -46,7 +41,7 @@ public class CustomerController {
         ResponseEntity<String> retorno;
         try {
             for(CustomerDto customerInsertData:listOfCustomers){
-                retorno = saveCustomer(customerInsertData);
+                retorno = saveCustomer( customerInsertData);
                 savedCustomers += "\n"+customerInsertData.name;
                 if(retorno.getStatusCode()==HttpStatus.INTERNAL_SERVER_ERROR){
                     return retorno;

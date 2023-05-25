@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import dio.paulo.aula.dio.credit.api.dominio.Credit;
+import dio.paulo.aula.dio.credit.api.entidade.Credit;
 
 public interface CreditRepository extends JpaRepository<Credit, Long>{
     public Credit findByCreditCode(UUID creditCode);

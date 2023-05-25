@@ -1,8 +1,6 @@
-package dio.paulo.aula.dio.credit.api.dominio;
+package dio.paulo.aula.dio.credit.api.entidade;
 import java.math.BigDecimal;
 import java.util.List;
-
-import org.hibernate.validator.constraints.br.CPF;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -11,28 +9,18 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "Tu tem nome, coloca teu nome")
+
     @Column(nullable = false) private String name;
-    @NotBlank(message = "Tu tem sobrenome, coloca teu sobrenome")
     @Column(nullable = false) private String lastName;
-    
-    @CPF(message = "CPF inválido")
     @Column(nullable = false,unique = true) private String cpf;
-
-    @Email(message = "Coloque um e-mail válido")
     @Column(nullable = false,unique = true) private String email;
-
-    @NotBlank(message = "Defina uma senha")
     @Column(nullable = false) private String password;
-
     @Column(nullable = true) private BigDecimal income;
     
     @Embedded
