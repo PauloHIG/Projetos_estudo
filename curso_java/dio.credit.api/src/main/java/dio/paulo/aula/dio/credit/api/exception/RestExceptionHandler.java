@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,8 +36,13 @@ public class RestExceptionHandler {
     @ExceptionHandler(DataAccessException.class)
     public ResponseEntity<ExceptionDetails> valorUnicoInfringido(
         DataAccessException excp){
+        Throwable causaRaiz = ExceptionUtils.getRootCause(excp);
         Map<String,String> msg = new HashMap<>();
         msg.put(excp.getCause().toString(),excp.getMessage());
+        msg.put("Mensagem: ", excp.getMessage());
+        msg.put("Causa: ", excp.getCause().toString());
+        msg.put("Causa Raiz: ",causaRaiz.getMessage());
+
         ExceptionDetails detalhesDaExcessao = new ExceptionDetails();
         detalhesDaExcessao.title = "Ocorreu um erro, consulte a documentação para mais detalhes";
         detalhesDaExcessao.timeStamp = LocalDateTime.now();
@@ -48,15 +54,18 @@ public class RestExceptionHandler {
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<ExceptionDetails> usuarioNaoEncontrado(
         BusinessException excp){
+        
         Map<String,String> msg = new HashMap<>();
-        msg.put(excp.getCause().toString(),excp.getMessage());
+        Throwable causaRaiz = ExceptionUtils.getRootCause(excp);
+        msg.put("Causa raiz", causaRaiz.getMessage());
         
         ExceptionDetails detalhesDaExcessao = new ExceptionDetails();
-        detalhesDaExcessao.title = "Ocorreu um erro, consulte a documentação para mais detalhes";
+        detalhesDaExcessao.title = "Ocorreu um erro ao procurar o usuario";
         detalhesDaExcessao.timeStamp = LocalDateTime.now();
         detalhesDaExcessao.status = HttpStatus.BAD_REQUEST.value();
-        detalhesDaExcessao.exception = excp.getClass().toString();
         detalhesDaExcessao.details = msg;
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(detalhesDaExcessao);
     }
+    
+    
 }

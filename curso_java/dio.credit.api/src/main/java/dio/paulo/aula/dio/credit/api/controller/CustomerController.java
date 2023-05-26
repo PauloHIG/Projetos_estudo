@@ -58,10 +58,11 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<CustomerView> findById(@PathVariable Long id){
+    ResponseEntity<CustomerView> findById(@PathVariable Long id) {
         Customer customer = this.customerService.findById(id);
         CustomerView customerView = new CustomerView(customer);
         return ResponseEntity.status(HttpStatus.OK).body(customerView);
+        
     }
 
     @DeleteMapping
