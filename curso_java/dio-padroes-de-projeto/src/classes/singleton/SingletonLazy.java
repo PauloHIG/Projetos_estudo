@@ -6,7 +6,7 @@ package classes.singleton;
  * depois criamos um método getInstance que retorna a instancia que já existe e só cria
  * uma nova instancia se for a primeira vez que foi instanciado
  */
-public class SingletonLazy extends Singleton{
+public class SingletonLazy implements Singleton{
     public String nome = "Larry";
     private static SingletonLazy singletonLazy;
     private SingletonLazy() {
@@ -14,6 +14,7 @@ public class SingletonLazy extends Singleton{
     public static SingletonLazy getInstance2(){
         return singletonLazy == null? singletonLazy = new SingletonLazy():singletonLazy;
     }
+
     public static SingletonLazy getInstance(){
         if(singletonLazy == null){
             singletonLazy = new SingletonLazy();

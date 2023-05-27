@@ -1,5 +1,3 @@
 package classes.singleton;
-
-public class Singleton {
-    
+public interface Singleton {
 }

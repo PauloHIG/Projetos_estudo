@@ -3,7 +3,7 @@ import classes.singleton.SingletonApressado;
 import classes.singleton.SingletonLazy;
 import classes.singleton.SingletonLazyHolder;
 
-public class Principal {
+public class TestandoSingleton {
     public static void main(String[] args) throws Exception {
         System.out.println("Singleton Lazy");
         Singleton classe = SingletonLazy.getInstance2();
@@ -22,5 +22,7 @@ public class Principal {
         System.out.println(classe);
         classe = SingletonLazyHolder.getInstance();
         System.out.println(classe);
+
+        
     }
 }

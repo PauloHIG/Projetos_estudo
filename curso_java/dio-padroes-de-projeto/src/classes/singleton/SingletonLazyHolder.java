@@ -1,6 +1,6 @@
 package classes.singleton;
 
-public class SingletonLazyHolder extends Singleton{
+public class SingletonLazyHolder implements Singleton{
     private SingletonLazyHolder(){}
     
     private static class guardarInstancia{
