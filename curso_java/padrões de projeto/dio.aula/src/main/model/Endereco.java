@@ -15,10 +15,6 @@ public class Endereco {
     String ddd;
     String siafi;
 
-    // Construtor vazio necessário para o Spring
-    public Endereco() {
-    }
-
     // Getters
     public String getCep() {
         return cep;
