@@ -6,7 +6,7 @@ import classes.singleton.SingletonLazyHolder;
 public class TestandoSingleton {
     public static void main(String[] args) throws Exception {
         System.out.println("Singleton Lazy");
-        Singleton classe = SingletonLazy.getInstance2();
+        Singleton classe = SingletonLazy.getInstance();
         System.out.println(classe);
         classe = SingletonLazy.getInstance2();
         System.out.println(classe);
